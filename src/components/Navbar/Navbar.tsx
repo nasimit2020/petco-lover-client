@@ -1,7 +1,22 @@
+"use client";
+
+import { getUserInfo, removeUser } from "@/utils/authService";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
+import { toast } from "sonner";
 
 const Navbar = () => {
+  const userInfo = getUserInfo();
+  const router = useRouter();
+  // console.log(userInfo);
+
+  const handleLogout = () => {
+    removeUser();
+    toast.success("User Logout Successfully!!!");
+    router.push("/login");
+  };
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -44,14 +59,26 @@ const Navbar = () => {
             <Link href="/">Home</Link>
           </li>
           <li>
-            <Link href="/">About</Link>
+            <Link href="/about">About</Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <Link href="/login" className="btn btn-accent">
-          Login
-        </Link>
+        {userInfo ? (
+          <>
+            <Link href="/dashboard" className="btn btn-accent mr-2">
+              {userInfo?.name}
+            </Link>
+
+            <button onClick={handleLogout} className="btn btn-error">
+              Logout
+            </button>
+          </>
+        ) : (
+          <Link href="/login" className="btn btn-accent">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

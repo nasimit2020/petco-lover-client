@@ -16,7 +16,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Technology
 
-*Next JS
-*React Hook Form
+-Next JS
+-For Using Form (React Hook Form)
+-For Toast (sonner)
+-For User Token Decoded (jwt-decoder)
 
 ## Deploy on Vercel

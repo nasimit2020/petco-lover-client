@@ -1,7 +1,10 @@
 "use client";
 
+import { setToLocalStorage } from "@/utils/localStorage";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 type Inputs = {
   email: string;
@@ -9,12 +12,15 @@ type Inputs = {
 };
 
 const LoginPage = () => {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm<Inputs>();
+
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
       const res = await fetch("http://localhost:5000/api/login", {
@@ -26,7 +32,10 @@ const LoginPage = () => {
       });
 
       const loginUser = await res.json();
+      setToLocalStorage("accessToken", loginUser?.data?.token);
       reset();
+      toast.success("User Login Successfully!!!");
+      router.push("/dashboard");
       // console.log(loginUser);
     } catch (error) {
       console.log(error);

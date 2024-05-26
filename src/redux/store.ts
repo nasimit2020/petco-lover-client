@@ -1,9 +1,20 @@
 
 import { configureStore } from '@reduxjs/toolkit'
+import { baseApi } from './api/baseApi'
 
 export const store = configureStore({
-    reducer: {},
+    reducer: {
+        [baseApi.reducerPath]: baseApi.reducer,
+    },
+
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(baseApi.middleware),
 })
+
+import { createWrapper } from 'next-redux-wrapper';
+
+const makeStore = () => store;
+export const wrapper = createWrapper(makeStore);
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>

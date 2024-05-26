@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 type Inputs = {
   name: string;
@@ -17,6 +19,9 @@ const RegisterPage = () => {
     reset,
     formState: { errors },
   } = useForm<Inputs>();
+
+  const router = useRouter();
+
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     // console.log(data);
     try {
@@ -36,6 +41,8 @@ const RegisterPage = () => {
 
         const registerUser = await res.json();
         reset();
+        toast.success("User Registration Successfully!!!");
+        router.push("/login");
         // console.log(registerUser);
       } else {
         console.log("Password Dose not Match");
@@ -44,6 +51,7 @@ const RegisterPage = () => {
       console.log(error);
     }
   };
+
   return (
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mx-auto mt-10 text-center">
       <p className="text-2xl font-semibold text-accent">Registration</p>
