@@ -49,6 +49,14 @@ const adminApi = baseApi.injectEndpoints({
             }),
             providesTags: ['pet']
         }),
+
+        getSinglePet: build.query({
+            query: ({ petId }) => ({
+                url: `/pet/${petId}`,
+                method: 'GET'
+            }),
+
+        }),
     }),
 });
 
@@ -58,4 +66,5 @@ export const {
     useUpdateUserProfileMutation,
     useAddPetMutation,
     useGetAllPetsQuery,
+    useGetSinglePetQuery,
 } = adminApi;

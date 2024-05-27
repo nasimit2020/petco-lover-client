@@ -1,20 +1,30 @@
+"use client";
+import { useGetAllPetsQuery } from "@/redux/api/adminApi";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const HeroSection = () => {
+  const { data: allPets, isLoading } = useGetAllPetsQuery({});
+  console.log(allPets);
+
   return (
-    <div className="hero min-height py-24 bg-accent rounded-md">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-          className="max-w-sm rounded-lg shadow-2xl"
-        />
-        <div>
-          <h1 className="text-5xl font-bold">Box Office News!</h1>
+    <div className="hero min-height py-24 bg-accent rounded-md ">
+      <div className="hero-content flex flex-col lg:flex-row-reverse">
+        <div className="lg:w-1/4 w-full flex justify-center lg:justify-end mb-6 lg:mb-0">
+          <Image
+            src={allPets?.data?.result[0]?.photo[0]}
+            alt="pet photo"
+            width={200}
+            height={200}
+          />
+        </div>
+        <div className="lg:w-3/4 w-full text-center lg:text-left px-6 lg:px-0">
+          <h1 className="text-5xl font-bold">Ready to Adopt!</h1>
           <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Discover loving pets waiting for their forever homes. Browse our
+            adoption listings and give a shelter animal the gift of a happy,
+            loving family. Adopt, dont shop—make a difference in a pets life.
           </p>
           <Link href="/" className="btn">
             Take Adoption
