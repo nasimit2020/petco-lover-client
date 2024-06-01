@@ -18,11 +18,11 @@ const AuthButton = () => {
     <>
       {userInfo ? (
         <>
-          <Link href="/dashboard" className="btn btn-accent mr-2">
+          <Link href="/dashboard" className="btn btn-neutral">
             {userInfo?.name}
           </Link>
 
-          <button onClick={handleLogout} className="btn btn-error">
+          <button onClick={handleLogout} className="btn btn-secondary">
             Logout
           </button>
         </>

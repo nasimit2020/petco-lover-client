@@ -16,6 +16,13 @@ export const getUserInfo = () => {
 
 };
 
+export const isLoggedIn = () => {
+    const authToken = getFromLocalStorage('accessToken');
+    if (authToken) {
+        return !!authToken;
+    }
+}
+
 export const removeUser = () => {
     return removeUserFromLocalStorage('accessToken');
 }

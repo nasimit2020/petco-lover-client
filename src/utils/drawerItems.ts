@@ -6,6 +6,18 @@ export const drawerItems = (role: string) => {
 
     const roleMenu = [];
 
+
+    const commonMenuItems = [
+        {
+            title: 'Change Password',
+            path: `${role}/change-password`
+        },
+        {
+            title: 'My Profile',
+            path: `${role}/my-profile`
+        },
+    ];
+
     switch (role) {
         case USER_ROLE.ADMIN:
             roleMenu.push(
@@ -27,15 +39,7 @@ export const drawerItems = (role: string) => {
         case USER_ROLE.USER:
             roleMenu.push(
                 {
-                    title: 'My Adaption',
-                    path: `${role}`
-                },
-                {
-                    title: 'My Adaption',
-                    path: `${role}`
-                },
-                {
-                    title: 'My Adaption',
+                    title: 'My Adoption',
                     path: `${role}`
                 },
             )
@@ -45,5 +49,5 @@ export const drawerItems = (role: string) => {
             break;
     }
 
-    return [...roleMenu];
+    return [...roleMenu, ...commonMenuItems];
 }

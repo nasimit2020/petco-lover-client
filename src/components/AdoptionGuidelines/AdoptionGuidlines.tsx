@@ -1,60 +1,45 @@
+import Link from "next/link";
 import React from "react";
 
 const AdoptionGuidelines = () => {
   return (
-    <div className="py-12">
-      <div className="text-center">
-        <p className="text-base">-How We Word</p>
-        <h1 className="text-5xl">Pet Adoption Process</h1>
+    <div className="py-24 px-12 bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200">
+      <div className="text-center py-8">
+        <p className="text-base"> - How We Work -</p>
+        <h1 className="text-5xl pt-4">Pet Adoption Process</h1>
       </div>
 
-      <div className="grid grid-cols-3 mx-auto gap-8">
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure className="px-10 pt-10">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-              alt="Shoes"
-              className="rounded-xl"
-            />
-          </figure>
+      <div className="grid lg:grid-cols-3 mx-auto gap-8">
+        <div className="card  bg-base-100 shadow-xl">
           <div className="card-body items-center text-center">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions">
-              <button className="btn btn-primary">Learn More</button>
-            </div>
+            <h2 className="card-title py-3">Registration</h2>
+            <p>
+              First, you need to Registration our website with your details
+              information
+            </p>
+            <Link href="/register" className="btn btn-sm btn-error">
+              Go For Registration <span>&#8594;</span>
+            </Link>
           </div>
         </div>
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure className="px-10 pt-10">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-              alt="Shoes"
-              className="rounded-xl"
-            />
-          </figure>
+        <div className="card  bg-base-100 shadow-xl">
           <div className="card-body items-center text-center">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions">
-              <button className="btn btn-primary">Learn More</button>
-            </div>
+            <h2 className="card-title py-3">Agreement & Processing</h2>
+            <p>
+              For take a pet adoption, you need to sign an agreement with our.
+            </p>
+            <Link href="/about" className="btn btn-sm btn-error">
+              See Agg Process <span>&#8594;</span>
+            </Link>
           </div>
         </div>
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure className="px-10 pt-10">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-              alt="Shoes"
-              className="rounded-xl"
-            />
-          </figure>
+        <div className="card  bg-base-100 shadow-xl">
           <div className="card-body items-center text-center">
-            <h2 className="card-title">Shoes!</h2>
+            <h2 className="card-title py-3">Terms & Conditions!</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions">
-              <button className="btn btn-primary">Learn More</button>
-            </div>
+            <Link href="/about" className="btn btn-sm btn-error">
+              See Terms & Condition <span>&#8594;</span>
+            </Link>
           </div>
         </div>
       </div>

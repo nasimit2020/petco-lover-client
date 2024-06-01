@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar/Navbar";
 
 const CommonLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <div className="">
       <Navbar />
       <div>{children}</div>
       <FooterPage />

@@ -23,7 +23,7 @@ const LoginPage = () => {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      const res = await fetch("http://localhost:5000/api/login", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/login`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -36,7 +36,7 @@ const LoginPage = () => {
       reset();
       toast.success("User Login Successfully!!!");
       router.push("/dashboard");
-      // console.log(loginUser);
+      // console.log(res);
     } catch (error) {
       console.log(error);
     }

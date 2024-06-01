@@ -31,7 +31,7 @@ const RegisterPage = () => {
           email: data.email,
           password: data.password,
         };
-        const res = await fetch("http://localhost:5000/api/register", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/register`, {
           method: "POST",
           headers: {
             "Content-type": "application/json",
